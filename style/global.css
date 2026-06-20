@@ -1,29 +1,33 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & BASE RESETS
+   ========================================================================== */
 html {
-  background-color: rgba(227,227,227,.80);
+  background-color: rgba(227, 227, 227, .80);
   font-family: 'Roboto Mono', monospace;
   line-height: 2em;
   height: 100%;
   width: 100%;
   margin: auto;
+}
 
+body {
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
   font-style: italic;
   font-size: 80%;
   margin-top: -1rem;
-
 }
 
 h2 {
-
   font-size: 100%;
   margin-top: 0rem;
 }
 
 h3 {
   font-size: 130%;
-
 }
 
 a {
@@ -34,17 +38,6 @@ a {
 a:hover {
   color: blue;
   font-weight: bold;
-
-
-}
-
-.navbar {
-  position: fixed;
-}
-
-#my_name {
-  padding-left: 65rem;
-  display: none;
 }
 
 ul {
@@ -52,23 +45,38 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: left;
-
-
 }
 
 li {
   margin: .5rem;
-
 }
 
-.wrapper{
+img {
+  height: 30rem;
+  width: 50rem;
+}
+
+img:hover {
+  border: 1% solid #555;
+}
+
+/* ==========================================================================
+   2. DESKTOP LAYOUT (GRID SYSTEM)
+   ========================================================================== */
+.navbar {
+  position: fixed;
+  z-index: 100;
+}
+
+#my_name {
+  padding-left: 75rem;
+  display: none;
+}
+
+.wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: auto;
-  grid-auto-rows: 7%;
-
-
-
+  grid-auto-rows: auto;
 }
 
 #big-about {
@@ -76,131 +84,174 @@ li {
   font-size: 150%;
   text-decoration: none;
   letter-spacing: .2rem;
-
 }
 
-
-.about{
-  /**border: 1px solid rgba(36,36,36,14);**/
-    /** drop shadow styling instead**/
+.about {
   grid-column: 2;
   grid-row: 1;
-text-align: center;
-margin: 2.5rem;
-font-size: 120%;
+  text-align: center;
+  margin: 2.5rem;
+  font-size: 120%;
 }
 
-
-
-body {
-
-}
-
-.work{
+.work {
   grid-column: 2;
   grid-row: 2;
   padding: calc(8px + 1.5625vw);
   margin-top: 2rem;
-
-/** create js slideshow of work**/
-
-
-  /** css grid styling instead **/
-/**  position:relative;
-top: 45px;
-right: 10px;
-width: 40%;
-float: right;
-padding: 15px;
-border: 1px solid rgba(36,36,36,14);
-drop shadow styling instead
-border-radius: 25px;**/
-
-
-
 }
 
-
-.work-one, .work-two, .work-three, .work-four, .work-five{
-    padding: calc(8px + 1.5625vw);
+.work-one, 
+.work-two, 
+.work-three, 
+.work-four, 
+.work-five {
+  padding: calc(8px + 1.5625vw);
+  width: 100%;
+  box-sizing: border-box;
 }
 
-
-/** hide works until uploaded/ js slideshow? **/
-.work-three, .work-four, .work-five {
+.work-three, 
+.work-four, 
+.work-five {
   display: block;
 }
 
-
-img {
-  height: 30rem;
-  width: 50rem;
+/* Desktop Video Settings */
+.portfolio-video {
+  width: 100%;          
+  max-width: 800px;     
+  height: auto;         
+  display: block;       
+  border-radius: 8px;   
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
 }
 
-img:hover{
-  border: 1% solid #555;
-
-
+/* Win Son Desktop Layout (Side-by-Side) */
+.winson-container {
+  display: flex;
+  align-items: flex-end; 
+  justify-content: space-between; 
+  gap: 1.5rem; 
+  width: 100%;
+  margin-bottom: 1rem; 
 }
-**/
 
+.winson-container .desktop-vid {
+  width: 72%; 
+  max-width: none; 
+}
+
+.winson-container .mobile-vid {
+  width: 24%; 
+  max-width: none;
+}
+
+
+/* ==========================================================================
+   3. RESPONSIVE MOBILE STYLES (UNDER 990PX)
+   ========================================================================== */
 @media only screen and (max-width: 990px) {
-  .body {
-
-
+  
+  body, main {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
   }
-}
 
-@media only screen and (max-width: 990px) {
-  .navbar {
-    position: relative;
-
-
-  }
-}
-
-
-@media only screen and (max-width: 990px) {
   .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: auto;
-    grid-auto-rows: 7%;
-
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 1.5rem !important; 
+    box-sizing: border-box !important;
   }
-}
 
-
-
-@media only screen and (max-width: 990px) {
-  .about  {
-
-    grid-column: 2;
-    grid-row: 2;
-  position: sticky;
-  margin: none;
-
-
+  .navbar {
+    position: relative !important;
+    width: 100%;
   }
-}
-
-
-
-@media only screen and (max-width: 990px) {
-    .work {
-      margin-top: 20rem;
-      grid-column: 2;
-      grid-row: 3;
+  
+  ul {
+    padding-left: 0;
+    justify-content: space-between;
   }
-}
 
+  .about {
+    grid-column: unset !important;
+    grid-row: unset !important;
+    width: 100% !important;
+    margin: 2rem 0 1rem 0 !important;
+    padding: 0 !important;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.6em;
+  }
 
+  .work, .work-one, .work-two {
+    grid-column: unset !important;
+    grid-row: unset !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 1.5rem 0 !important;
+    display: block !important;
+  }
 
+  /* Keep videos clean, crisp, and centered on smaller device screens */
+  .portfolio-video {
+    width: 100% !important;
+    max-width: 520px !important; 
+    height: auto !important;
+    margin: 0 auto 1.5rem auto !important; 
+  }
 
+  /* Win Son mobile stacked layout container */
+  .winson-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    max-width: 520px !important; 
+    margin: 0 auto 1.5rem auto !important; 
+  }
 
-@media only screen and (max-width: 990px) {
+  .winson-container .desktop-vid,
+  .winson-container .mobile-vid {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* FOOLPROOF BREAK-OUT FIX: Force titles & paragraphs out to 90% screen viewport width */
+  .work h1, 
+  .work h2 {
+    display: block !important;
+    width: 90vw !important;        
+    max-width: 90vw !important;    
+    margin-left: auto !important;  
+    margin-right: auto !important; 
+    text-align: left !important;   
+    box-sizing: border-box !important;
+  }
+
+  .work h2 {
+    margin-top: 0 !important; 
+    font-size: 1.1rem;
+  }
+
+  .work h1 {
+    margin-top: 0.4rem !important;
+    font-size: 0.9rem;
+    line-height: 1.6em !important;
+  }
+
   img {
-    height: 30vh;
-    width: 35vh;
+    height: auto !important;
+    width: 100% !important;
   }
 }
