@@ -17,7 +17,7 @@ body {
 
 h1 {
   font-style: italic;
-  font-size: 80%;
+  font-size: 1rem;
   margin-top: -1rem;
 }
 
@@ -64,13 +64,12 @@ img:hover {
    2. DESKTOP LAYOUT (GRID SYSTEM)
    ========================================================================== */
 .navbar {
-  position: fixed;
+  position: relative;
   z-index: 100;
 }
 
 #my_name {
-  padding-left: 75rem;
-  display: none;
+  
 }
 
 .wrapper {
